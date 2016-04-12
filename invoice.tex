@@ -1,34 +1,43 @@
-\documentclass{invoice}
+%----------------------------------------------------------------------------------------
+%	DOCUMENT CONFIGURATION
+%----------------------------------------------------------------------------------------
 
-\def \tab {\hspace*{3ex}}
-
+\documentclass{invoice} % Use the custom invoice class (invoice.cls)
+\usepackage[utf8]{inputenc}
 \begin{document}
 
-\hfil{\Huge\bf Joe Shmoe}\hfil
-\bigskip\break
-\hrule
-5555 Front St. \hfill 555~.~356~.~7936 \\
-Toledo, OH 43602 \hfill shmoe@example.com
-\\ \\
-{\bf Invoice To:} \\
-\tab John Doe \\
-\tab ACME Corporation \\
+%----------------------------------------------------------------------------------------
+%       COMPANY INFORMATION
+%----------------------------------------------------------------------------------------
 
-{\bf Date:} \\
-\tab \today \\
+\companyname{Your company name}
+\cvr{Your CVR number}
+\address{Address line 1\\Address line 2\\Address line 3}
+\contact{Mobile: +45 12345678\\E-mail: you@company.dk}
+\bank{Mybank: 1234-567890}
 
-\hourlyrate{12.51}
+%----------------------------------------------------------------------------------------
+%       CUSTOMER INFORMATION
+%----------------------------------------------------------------------------------------
 
+\cname{Customer name}
+\caddress{Some road 123}
+\ccity{Gotham}
+\czip{1234}
+\cremark{Some remark}
+\invoiceno{n}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF EXPENSES
+%----------------------------------------------------------------------------------------
+
+\header
 \begin{invoiceTable}
-\feetype{Consulting Services}
-\hourrow{January 3, 2011}{8}
-\hourrow{January 4, 2011}{6.5}
-\hourrow{January 5, 2011}{5.25}
-\hourrow{January 6, 2011}{9.75}
-\hourrow{January 7, 2011}{4}
-\subtotal
-\feetype{Hosting Expenses}
-\feerow{Ajax Hosting: January 8, 2011}{60}
+\hourrow{Hour row}{10}{300}
+\feerow{Fee row}{500}
+\unitrow{Unit row}{2}{1000}{days}
+\taxes
 \end{invoiceTable}
 
+%----------------------------------------------------------------------------------------
 \end{document}
